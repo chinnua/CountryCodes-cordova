@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="codesApp">
+<head>
+    <!--
+        Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+        For details, see http://go.microsoft.com/fwlink/?LinkID=617521
+    -->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <!--<meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">-->
+    <meta http-equiv="Content-Security-Policy" content="default-src *; script-src * 'unsafe-inline' 'unsafe-eval'; style-src * 'unsafe-inline' 'unsafe-eval'; media-src *">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+    <link href="css/material.min.css" rel="stylesheet" />
+    <script src="scripts/jquery-3.1.0.min.js"></script>
+    <script src="scripts/angular.min.js"></script>
+    <script src="scripts/angular-route.min.js"></script>
+    <script src="scripts/material.min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="scripts/platformOverrides.js"></script>
+    <script src="scripts/index.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="flags/flags.css" rel="stylesheet" />
+    <title>CountryCodes</title>
+</head>
+<body ng-controller="tldController">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Domain Extns.</span>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title" style="background-color: #3f51b5; color: #ffffff">Country Details</span>
+            <nav class="mdl-navigation">
+                <a class="mdl-navigation__link" href="#tld">Domain Extns.</a>
+                <a class="mdl-navigation__link" href="#callingcodes">Calling Codes</a>
+                <a class="mdl-navigation__link" href="#capitals">Capitals</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content" ng-view>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+<script>
+    $(document).ready(function () {
+        $('.mdl-navigation__link').click(function () {
+            var layout = document.querySelector('.mdl-layout');
+            layout.MaterialLayout.toggleDrawer();
+            $('.mdl-layout-title').html($(this).text());
+
+        });
+    });
+</script>

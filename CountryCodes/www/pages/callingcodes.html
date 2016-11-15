@@ -1,0 +1,9 @@
+﻿<div ng-repeat="country in Countries" ng-if="country.callingCode[0]">
+    <div class="mdl-card mdl-shadow--2dp" style="min-height: 0px !important; width: 100% !important">
+        <div class="mdl-card__supporting-text">
+            <span style="float: left"><img src="blank.gif" class="flag flag-{{country.cca2 | lowercase}}" alt="{{country.name.common}}" />&nbsp;&nbsp;{{country.name.common}}</span>
+            <span style="float: right">+{{country.callingCode[0]}}</span>
+        </div>
+    </div>
+    <div style="min-height: 7px"></div>
+</div>
